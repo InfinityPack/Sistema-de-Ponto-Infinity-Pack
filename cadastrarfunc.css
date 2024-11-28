@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+:root {
+    --font-primary: "Baloo Da 2", serif;
+    --font-secundary: "Josefin Slab", serif;
+    --font-action: "Mulish", serif;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden; 
+    background-color: #f5ebfb;
+    background: url('IMG/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    background: linear-gradient(0, #939393, #e7e4de);
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+.section-form form {
+    align-items: center;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    width: 399px;
+    height: 390px;
+    padding-bottom: 50px;
+    position: absolute;
+    left: 50%;
+    top: 59%; 
+    transform: translate(-50%, -50%); 
+    box-shadow: 0.2rem 0.2rem 0.8rem rgb(133, 130, 130);
+}
+
+.section-form .titulo {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    margin-top: 2.8rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0rem 0.1rem 0.1rem #ffffff;
+}
+
+.section-form .campos {
+    font-family: var(--font-secundary);
+    font-size: 1rem;
+    font-weight: 700;
+    text-shadow: 0rem 0rem 0.1rem #ffffff;
+    margin: 0; 
+    padding: 0; 
+}
+
+.section-form .campos h1 {
+    font-size: 1.9rem; 
+    margin: 0; 
+}
+
+.section-form .tbox {
+    height: 1.5rem;
+    width: 68%;
+    margin-bottom: .5rem;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+.button {
+    background: linear-gradient(to right, #7f00ee, #a258f1);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    height: 2.9rem; 
+    text-align: center;
+    font-family: var(--font-action);
+    font-size: 1rem; 
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 1rem; 
+    padding: 0.5rem 1rem; 
+    opacity: 1; 
+    transition: opacity 0.1s; 
+    transition: transform 0.2s ease;
+
+}
+
+.button:hover, .button2:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+.section-form .button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+
+header {
+    background-color: #8c52ff; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100px; 
+    padding: 10px; 
+}
+
+.header-img {
+    max-height: 70px; 
+    width: auto; 
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+
+/* Botão hambúrguer */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: inside;
+}
+
+.menu {
+    position: absolute; /* Permite posicionar o menu em relação à tela */
+    top: 1px;          /* Distância do topo */
+    left: 1px;         /* Distância da esquerda */
+}
+
+.menu .menu-faketrigger {
+    position: absolute;
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Posição dos 3 riscos */
+.menu .menu-lines {
+    position: relative;
+    z-index: 999;
+    width: 30px;
+    height: 30px;
+}
+
+/* Três riscos com animação */
+.menu .menu-lines span {
+    display: block;
+    width: 35px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    transition: all ease 0.4s;
+}
+
+.menu .menu-faketrigger:checked ~ .menu-lines span {
+    background-color: rgb(129, 26, 188); 
+}
+
+.menu .menu-faketrigger:checked ~ .menu-lines span:nth-child(1) {
+    transform-origin: 0% 0%;
+    transform: rotate(45deg) scaleX(1.25);
+}
+
+.menu .menu-faketrigger:checked ~ .menu-lines span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu .menu-faketrigger:checked ~ .menu-lines span:nth-child(3) {   
+    transform-origin: 0% 100%;
+    transform: rotate(-45deg) scaleX(1.25);
+}
+
+/* Fim três riscos */
+/* Fim três riscos */
+.menu ul {
+    position: absolute;
+    z-index: 998;
+    left: 0;
+    top: 0;
+    width: 300px; /* Largura fixa do menu */
+    min-height: 140vh; /* Garante que ocupe pelo menos toda a altura da tela */
+    padding-top: 70px; /* Espaçamento para o conteúdo interno */
+    background-color: #d8c9f1;
+    margin-left: -360px; /* Mantém o menu escondido inicialmente */
+    transition: 1.0s ease; /* Animação ao abrir */
+    overflow-y: auto; /* Adiciona scroll caso o conteúdo ultrapasse a altura da tela */
+}
+
+/* NÃO ALTERAR */
+.menu .menu-faketrigger:checked ~ ul {
+    margin-left: 0; /* Mostra o menu ao clicar */
+}
+
+/* Tamanho do menu lateral */
+.menu ul li {
+    padding: 15px 40px;
+}
+
+/* Esconde o menu lateral e modifica o tamanho da fonte */
+.menu ul li a {
+    text-decoration: none;
+    color: rgb(252, 252, 252);
+    font-size: 19px;
+    transition: all ease 0.6s;
+}
+
+.menu ul li a:hover {
+    color: rgb(121, 73, 255);
+}
+
+/* Muda o tamanho dos ícones do menu lateral */
+.menu li .img {
+    width: 30px;
+    height: 70px;
+}
+
+/* Estilização do conteúdo principal com layout grid */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 20px;
+    margin-top: 50px;
+    width: 100%;
+}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Funcionários</title>
+    <style>
+        /* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo do corpo e do título */
+body {
+    background-color: #f7f4fb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin: 20px;
+    text-align: center;
+}
+
+/* Estilo da tabela */
+table {
+    width: 60%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    color: #555;
+}
+
+th {
+    background-color: #8B57D9;
+    color: #fff;
+    font-weight: 600;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:hover td {
+    background-color: #f4eafc;
+}
+
+/* Estilo do botão de apagar */
+.delete-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Efeito nas células ao passar o mouse */
+tbody tr:hover {
+    background-color: #f1f5f8;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    table {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Botão hambúrguer */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: inside;
+}
+
+.menu {
+    position: absolute; /* Permite posicionar o menu em relação à tela */
+    top: 1px;          /* Distância do topo */
+    left: 1px;         /* Distância da esquerda */
+}
+
+.menu .menu-faketrigger {
+    position: absolute;
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Posição dos 3 riscos */
+.menu .menu-lines {
+    position: relative;
+    z-index: 999;
+    width: 30px;
+    height: 30px;
+}
+
+/* Três riscos com animação */
+.menu .menu-lines span {
+    display: block;
+    width: 35px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: rgb(170, 92, 233);
+    border-radius: 3px;
+    transition: all ease 0.4s;
+}
+
+.menu .menu-faketrigger:checked ~ .menu-lines span {
+    background-color: rgb(255, 255, 255); 
+}
+
+.menu .menu-faketrigger:checked ~ .menu-lines span:nth-child(1) {
+    transform-origin: 0% 0%;
+    transform: rotate(45deg) scaleX(1.25);
+}
+
+.menu .menu-faketrigger:checked ~ .menu-lines span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu .menu-faketrigger:checked ~ .menu-lines span:nth-child(3) {   
+    transform-origin: 0% 100%;
+    transform: rotate(-45deg) scaleX(1.25);
+}
+
+/* Fim três riscos */
+.menu ul {
+    position: absolute;
+    z-index: 998;
+    left: 0;
+    top: 0;
+    width: 300px; /* Largura fixa do menu */
+    min-height: 140vh; /* Garante que ocupe pelo menos toda a altura da tela */
+    padding-top: 70px; /* Espaçamento para o conteúdo interno */
+    background-color: #d8c9f1;
+    margin-left: -360px; /* Mantém o menu escondido inicialmente */
+    transition: 1.0s ease; /* Animação ao abrir */
+    overflow-y: auto; /* Adiciona scroll caso o conteúdo ultrapasse a altura da tela */
+}
+
+/* NÃO ALTERAR */
+.menu .menu-faketrigger:checked ~ ul {
+    margin-left: 0; /* Mostra o menu ao clicar */
+}
+
+/* Tamanho do menu lateral */
+.menu ul li {
+    padding: 15px 40px;
+}
+
+/* Esconde o menu lateral e modifica o tamanho da fonte */
+.menu ul li a {
+    text-decoration: none;
+    color: rgb(252, 252, 252);
+    font-size: 19px;
+    transition: all ease 0.6s;
+}
+
+.menu ul li a:hover {
+    color: rgb(121, 73, 255);
+}
+
+/* Muda o tamanho dos ícones do menu lateral */
+.menu li .img {
+    width: 30px;
+    height: 70px;
+}
+
+/* Estilização do conteúdo principal com layout grid */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 20px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+    </style>
+</head>
+<body>
+    <!--Hamburguer-->
+    <nav class="menu">
+        <input type="checkbox" class="menu-faketrigger">
+        <div class="menu-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <br>
+            <li><img src="perfil.png"><a href="cadastrarfunci.html">cadastro</a></li> 
+            <li><img src="escrevendo.png"><a href="config.html">sistema de ponto</a></li>  
+            <li><img src="feriados.png"><a href="">ausência e férias</a></li>  
+            <li><img src="senha.png"><a href="">info.funcionario</a></li>  
+            <br><br><br><br><br>
+            <li><img src="seta.png"><a href="pag1.html">voltar</a></li>   
+        </ul>
+    </nav>
+    <h1 style="text-align:center">Funcionários Cadastrados</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Senha</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody id="userTableBody">
+            <!-- Os dados serão inseridos aqui -->
+        </tbody>
+    </table>
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDrxhtmRbMdyrlHfF6ecHBD4RkdaAvRsqE",
+            authDomain: "tcc-qrcode-1e936.firebaseapp.com",
+            databaseURL: "https://tcc-qrcode-1e936-default-rtdb.firebaseio.com",
+            projectId: "tcc-qrcode-1e936",
+            storageBucket: "tcc-qrcode-1e936.appspot.com",
+            messagingSenderId: "647339303822",
+            appId: "1:647339303822:web:718d72a0bfc313b7b3fadf"
+        };
+        const app = firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        const userTableBody = document.getElementById('userTableBody');
+
+        // Função para carregar os usuários do Firebase e exibir na tabela
+        function loadUsers() {
+            const usersRef = database.ref('users');
+            usersRef.once('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                    const userData = childSnapshot.val();
+                    const userId = childSnapshot.key; // Pegamos o UID do usuário
+                    const newRow = document.createElement('tr');
+                    
+                    const emailCell = document.createElement('td');
+                    emailCell.textContent = userData.email;
+                    newRow.appendChild(emailCell);
+                    
+                    const senhaCell = document.createElement('td');
+                    senhaCell.textContent = userData.senha;
+                    newRow.appendChild(senhaCell);
+
+                    // Cria a célula do botão de apagar
+                    const actionCell = document.createElement('td');
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Apagar';
+                    deleteButton.classList.add('delete-btn');
+                    deleteButton.addEventListener('click', function() {
+                        deleteUser(userId, newRow);  // Função para apagar o usuário
+                    });
+                    actionCell.appendChild(deleteButton);
+                    newRow.appendChild(actionCell);
+
+                    userTableBody.appendChild(newRow);
+                });
+            });
+        }
+
+        // Função para apagar um usuário
+        function deleteUser(userId, tableRow) {
+            if (confirm("Tem certeza que deseja apagar este usuário?")) {
+                database.ref('users/' + userId).remove()
+                .then(function() {
+                    alert('Usuário apagado com sucesso!');
+                    tableRow.remove();  // Remove a linha da tabela
+                })
+                .catch(function(error) {
+                    alert('Erro ao apagar usuário: ' + error.message);
+                });
+            }
+        }
+
+        // Chama a função para carregar os usuários quando a página for carregada
+        window.onload = loadUsers;
+    </script>
+</body>
+</html>
