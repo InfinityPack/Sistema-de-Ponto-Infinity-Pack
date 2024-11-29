@@ -412,7 +412,9 @@ h3 {
     border: none; /* Remove bordas padrão */
     border-radius: 5px; /* Bordas arredondadas */
     cursor: pointer; /* Mostra o cursor de clique */
-    text-align: center;
+    text-align: center; /* Centraliza o texto horizontalmente */
+    vertical-align: middle; /* Garante alinhamento vertical */
+    line-height: 1.5; /* Ajusta o espaçamento para centralizar melhor */
 }
 
 .back-btn:hover {
