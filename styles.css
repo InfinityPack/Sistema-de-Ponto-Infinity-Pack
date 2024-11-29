@@ -413,6 +413,7 @@ h3 {
     border-radius: 5px; /* Bordas arredondadas */
     cursor: pointer; /* Mostra o cursor de clique */
     text-align: center; /* Centraliza o texto horizontalmente */
+    margin: 0 auto;
     vertical-align: middle; /* Garante alinhamento vertical */
     line-height: 1.5; /* Ajusta o espaçamento para centralizar melhor */
 }
