@@ -402,19 +402,20 @@ h3 {
 }
 
 .back-btn {
-    display: flex; /* Torna o botão um contêiner flexível */
-      align-items: center; /* Centraliza o conteúdo verticalmente */
-      justify-content: center; /* Centraliza o conteúdo horizontalmente */
-      padding: 10px 20px; /* Espaçamento interno */
-      background-color: #b291f6; /* Cor de fundo */
-      color: white; /* Cor do texto */
-      text-decoration: none; /* Remove o sublinhado */
-      font-family: Arial, sans-serif; /* Fonte padrão */
-      font-size: 16px; /* Tamanho da fonte */
-      border: none; /* Remove bordas padrão */
-      border-radius: 5px; /* Bordas arredondadas */
-      cursor: pointer; /* Mostra o cursor de clique */
-      text-align: center; /* Centraliza o texto horizontalmente */
+    display: inline-block; /* Torna o botão um contêiner flexível */
+    padding: 10px 90px; /* Espaçamento interno */
+    background-color: #b291f6; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    font-size: 16px; /* Tamanho da fonte */
+    border: none; /* Remove bordas padrão */
+    border-radius: 10px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostra o cursor de clique */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    margin: auto;
+    vertical-align: middle;
+    line-height: 1.5;
 }
 
 .back-btn:hover {
